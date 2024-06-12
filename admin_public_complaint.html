@@ -1,0 +1,32 @@
+   {% include 'adminheader.html' %}
+<h1>    PUBLIC COMPLAINTS  </h1>
+
+    <form method="post" enctype="multipart/form-data">
+       
+
+        <table class="table" id="customers">
+            <tr>
+                <th>Complaint</th>
+                <th>User</th>
+                <th>Date</th>
+                <th>Reply</th>
+            </tr>
+            {% for i in data['view'] %}
+                <tr>
+                    <td>{{i['complaint']}}</td>
+                    <td>{{i['public_name']}}</td>
+                    <td>{{i['date']}}</td>
+                    {% if i['reply']=="pending" %}
+            <td><a class="btn btn-danger" href="admin_public_reply?rid={{i['pcomplaint_id']}}">Reply</a></td>
+            {% else %}
+                    <td>{{i['reply']}}</td>
+                                {% endif %}
+
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+</center>
+<br><br><br><br><br><br>
+</div></div></div></div></div></div>
+{% include 'footer.html' %}

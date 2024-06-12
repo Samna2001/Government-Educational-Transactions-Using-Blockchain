@@ -1,0 +1,175 @@
+{% include 'sellerheader.html'%}
+
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+<script>
+    $(function() {
+        $("input[name='a']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='b']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+        
+        $("input[name='d']").on('input', function(e) {
+          $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='pincode']").on('input', function(e) {
+          $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='e']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+
+        });
+        $("input[name='address']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        $("input[name='c']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+            
+        $("input[name='g']").on('input', function(e) {
+          $(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+            
+        });
+    });
+
+
+
+   var check = function() {
+  if (document.getElementById('form_password').value ==
+    document.getElementById('form_retype_password').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
+
+{% if up %}
+<h1>UPDATE STAFF </h1>
+<form action="" method="post">
+{%csrf_token%}
+<table class="table" style="width: 500px;">
+    <tr>`
+        <th>First Name</th>
+        <td><input type="text" name="a" required id="form_fname" style="text-transform:capitalize;" class="form-control" value="{{up.fn}}">
+            <span class="error_form" id="fname_error_message" style="color:red; font-size :13px; "></span></td>
+
+        </td>
+    </tr>
+     <tr>
+        <th>Last Name</th>
+        <td><input type="text" name="b" id="form_sname" style="text-transform:capitalize;" required class="form-control" value="{{up.ln}}">
+            <span class="error_form" id="sname_error_message" style="color:red; font-size :13px; "></span>
+
+        </td>
+    </tr>
+    <tr>
+        <th>Place</th>
+        <td><input type="text" name="c" id="" style="text-transform:capitalize;" required class="form-control" value="{{up.place}}"></td>
+    </tr>
+    <tr><tr>
+        <th>Phone</th>
+        <td><input type="text" name="d" id="form_phone" required class="form-control" value="{{up.phone}}">
+            <span class="error_form" id="phone_error_message" style="color:red; font-size :13px; "></span></td>
+
+        </td>
+    </tr>
+    <tr><tr>
+        <th>Email</th>
+        <td><input type="email" name="e" id="form_email" required  class="form-control"value="{{up.email}}">
+            <span class="error_form" id="email_error_message"  style="color:red; font-size :13px; "></span>
+
+        </td>
+    </tr>
+ 
+    <tr>
+        <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="login" id="" value="UPDATE"></td>
+    </tr>
+
+</table>
+</form>
+{% else %}
+<h1>MANAGE STAFF </h1>
+<form action="" method="post">
+{%csrf_token%}
+        <table class="table" style="width: 500px;">
+            <tr>
+                <th>First Name</th>
+                <td><input type="text" name="fname" style="text-transform:capitalize;" required id="form_fname"  class="form-control">
+                    <span class="error_form" id="fname_error_message" style="color:red; font-size :13px; "></span></td>
+
+            </tr>
+             <tr>
+                <th>Last Name</th>
+                <td><input type="text" name="b" style="text-transform:capitalize;" required id="form_sname"  class="form-control">
+                    <span class="error_form" id="sname_error_message" style="color:red; font-size :13px; "></span>
+
+                </td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td><input type="text" name="c" style="text-transform:capitalize;" required id="" pattern="[A-Za-z]+$" class="form-control">
+                    <span class="error_form" id="fname_error_message" style="color:red; font-size :13px; "></span>
+
+                </td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text" name="d" required id="form_phone" pattern="[0-9]{10}"class="form-control">
+                    <span class="error_form" id="phone_error_message" style="color:red; font-size :13px; "></span></td>
+
+                </td>
+            </tr>
+          <tr>
+                <th>Email</th>
+                <td><input type="email" name="e" required id="form_email" class="form-control">
+                    <span class="error_form" id="email_error_message"  style="color:red; font-size :13px; "></span>
+
+                </td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td><input type="text" name="f" required id="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" name="g" required onkeyup='check();' id="form_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required class="form-control">
+                    <span class="error_form" id="password_error_message"  style="color:red; font-size :13px; "></span>
+
+                </td>
+            </tr>
+            <tr>
+                <th>Confirm Password</th>
+                <td><input type="password" name="gg" onkeyup='check();' id="form_retype_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required class="form-control">
+                    <span class="error_form" id="retype_password_error_message"  style="color:red; font-size :13px; "></span>
+
+                </td>
+                <td id='message'></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="login" id="" value="SUBMIT"></td>
+            </tr>
+
+        </table>
+</form>
+{% endif %}

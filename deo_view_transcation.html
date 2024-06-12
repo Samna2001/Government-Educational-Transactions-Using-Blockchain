@@ -1,0 +1,41 @@
+ 
+{% include 'deo_header.html' %}
+
+
+<h1>    VIEW TRANSCATIONS  </h1>
+
+        <table class="table" id="customers">
+		<tr>
+			<th>Transcation ID</th>
+			<th>Transcation Name</th>
+			<th>Details</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['transcationid']}}</td>
+			<td>{{i['transcation_name']}}</td>
+			<td>{{i['details']}}</td>
+			<td>{{i['amount']}}</td>
+			<td>{{i['date']}}</td>
+<!-- 			<td>{{i['status']}}</td>
+ -->
+            {% if i['tstatus']=='pending' %}
+            <td><a class="btn btn-success" href="?action=verify&transcation_id={{i['transcation_id']}}">verify</a></td>
+
+            {% else %}
+
+            <td> {{i['status']}}</td>
+
+
+            {% endif %}
+
+
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+
+{% include 'footer.html' %}

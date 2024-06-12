@@ -1,0 +1,27 @@
+ 
+{% include 'adminheader.html' %}
+
+
+<h1>    VIEW SHORTAGE REQUEST  </h1>
+
+        <table class="table" id="customers">
+		<tr>
+		
+			<th>Request For</th>
+			<th>Details</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			
+			<td>{{i['requestdetails']}}</td>
+			<td>{{i['details']}}</td>
+			<td>{{i['date']}}</td>
+			<td>{{i['status']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+
+{% include 'footer.html' %}

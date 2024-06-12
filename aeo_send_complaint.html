@@ -1,0 +1,43 @@
+{% include 'aeo_header.html' %}
+
+
+<center>
+    <br><br><br><br><br>
+    <h1 style="color:blue;font-size:50px;">Send Complaint</h1>
+    <form method="post" enctype="multipart/form-data">
+        <table class="table" id="customers" style="width: 800px;">
+            <tr>
+                <th>Complaint <span style="color: red">*</span></th>
+                <td><input type="text" name="comp" class="form-control" required=""></td>
+            </tr>
+            <tr>
+                <th>Upload file <span style="color: red">*</span></th>
+                <td><input type="file" name="fi" class="form-control" required=""></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2" style="text-align:center;"><input type="submit" name="cs" value="Submit" class="btn btn-success"></td>
+            </tr>
+        </table>
+
+<h1>View complaints</h1>
+        <table class="table" id="customers" style="width: 800px;">
+            <tr>
+                <th>Complaint</th>
+                <th>Uploaded File</th>
+                <th>Datetime</th>
+                <th>Reply</th>
+            </tr>
+            {% for i in data['view'] %}
+                <tr>
+                    <td>{{i['complaint']}}</td>
+                    <td><img src="/{{i['upload']}}" width="60" height="100"></td>
+                    <td>{{i['date']}}</td>
+                    <td>{{i['reply']}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+</center>
+<br><br><br><br><br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,50 @@
+ {% include 'rdd_header.html'%}
+
+       
+
+<h1>    ADD  PLANS </h1>
+    <form action="" method="post" enctype="multipart/form-data">
+   
+        <table class="table" id="customers" style="width: 800px;">
+        <tr>
+            <th>Assign AD</th>
+            <td><select  name="oid"  class="form-control">
+                <option>--Select--</option>
+                {% for row in data['viewsss']%}
+                <option value="{{row['staff_id']}}">{{row['fname']}} {{row['lname']}}--{{row['place']}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+                  <tr>
+                        <th>Plan <span style="color: red">*</span></th>
+                        <td><input type="text" name="pl" class="form-control" required=""></td>
+                  </tr>
+
+             <tr>
+                <th>Description <span style="color: red">*</span></th>
+                <td><input type="text" name="desc" class="form-control"></td>
+                <tr>
+                <tr>
+                    <th>Upload File <span style="color: red">*</span></th>
+                    <td><input type="file" name="plan_file" class="form-control"></td>
+                </tr>
+                  <tr>
+                        <td colspan="2" align="center"><input type="submit" name="ss" value="submit" class="btn btn-success"></td>
+                  </tr>
+      
+      </table>
+
+</form>
+
+
+
+
+
+        </table>
+   
+
+{% include 'footer.html'%}
+
+
+
+

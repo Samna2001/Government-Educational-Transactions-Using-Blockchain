@@ -1,0 +1,83 @@
+ 
+
+<style>
+    body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+
+    center {
+        margin-top: 50px;
+    }
+
+    h1 {
+        color: blue;
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 50%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    input[type="text"], input[type="password"], input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<CENTER>
+<h1>    VIEW TRANSACTIONS  </h1>
+
+</CENTER>
+
+        <table class="table" id="customers">
+		<tr>
+			<th>Transaction ID</th>
+			<th>Transaction Name</th>
+			<th>Details</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['transcationid']}}</td>
+			<td>{{i['transcation_name']}}</td>
+			<td>{{i['details']}}</td>
+			<td>{{i['amount']}}</td>
+			<td>{{i['date']}}</td>
+			<td>{{i['status']}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+<a href="/">back</a>
+

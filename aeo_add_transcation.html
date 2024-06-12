@@ -1,0 +1,39 @@
+{% include 'aeo_header.html'%}
+
+
+<h1>    ADD  TRANSACTIONS </h1>
+    <form action="" method="post">
+   
+        <table class="table" id="customers" style="width: 800px;">
+        <tr>
+            <th>Assign DEO</th>
+            <td><select  name="oid"  class="form-control">
+                <option>--Select--</option>
+                {% for row in data['viewsss']%}
+                <option value="{{row['staff_id']}}">DEO({{row['fname']}} {{row['lname']}})--{{row['place']}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+<tr>
+				<th>Transactions<span style="color: red">*</span></th>
+				<td><input type="text" name="sch" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<th>Details<span style="color: red">*</span></th>
+				<td><input type="text" name="det" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<th>Amount<span style="color: red">*</span></th>
+				<td><input type="text" name="pri" class="form-control" required=""></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="ss" value="submit" class="btn btn-success"></td>
+			</tr>
+	
+	</table>
+
+</form>
+
+
+
+{% include 'footer.html' %}

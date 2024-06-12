@@ -1,0 +1,50 @@
+{% include 'ad_header.html'%}
+
+
+<h1>    ASSIGN REQUEST  </h1>
+    <form action="" method="post">
+   
+        <table class="table" id="customers" style="width: 800px;">
+
+        <tr>
+            <th>Choose RDD</th>
+            <td><select  name="oid"  class="form-control">
+                <option>--Select--</option>
+                {% for row in data['viewsss']%}
+                <option value="{{row['staff_id']}}">{{row['fname']}} {{row['lname']}}--{{row['place']}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="rs" value="submit" class="btn btn-success"></td>
+		</tr>
+	</table>
+<!-- 
+<h1>    VIEW SEND REQUEST  </h1>
+
+        <table class="table" id="customers">
+		<tr>
+			<th>Request For</th>
+			<th> Details</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['requestdetails']}}</td>
+			<td>{{i['details']}}</td>
+			<td>{{i['date']}}</td>
+			<td>{{i['status']}}</td> -->
+<!-- 			<td><a class="btn btn-warning" href="office_add_plans?rid={{i['request_id']}}">Add plans</a></td>
+ -->			
+
+		<!-- </tr>
+		{% endfor %}
+	</table> -->
+</form>
+
+
+
+{% include 'footer.html' %}

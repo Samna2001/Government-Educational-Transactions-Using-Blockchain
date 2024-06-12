@@ -1,0 +1,96 @@
+
+<style>
+    body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+
+    center {
+        margin-top: 50px;
+    }
+
+    h1 {
+        color: blue;
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 50%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    input[type="text"], input[type="password"], input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+
+
+
+   
+<center>
+    <br><br><br><br><br>
+    <h1 style="color:blue;font-size:50px;">Send Complaint</h1>
+    <form method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <th>Complaint</th>
+                <td><input type="text" name="comp" class="form-control" required=""></td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td><input type="text" name="usern" class="form-control" required=""></td>
+            </tr>
+           
+            <tr>
+                <td colspan="2" style="text-align:center;"><input type="submit" name="cs" value="Submit" class="btn btn-success"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Complaint</th>
+                <th>User</th>
+                <th>Date</th>
+                <th>Reply</th>
+            </tr>
+            {% for i in data['view'] %}
+                <tr>
+                    <td>{{i['complaint']}}</td>
+                    <td>{{i['public_name']}}</td>
+                    <td>{{i['date']}}</td>
+                    <td>{{i['reply']}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+    <a href="/" class="btn btn-success">back</a>
+</center>
+
+<br><br><br><br><br><br>

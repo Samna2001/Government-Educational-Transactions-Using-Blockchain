@@ -1,0 +1,31 @@
+   {% include 'adminheader.html' %}
+<h1>    OFFICERS COMPLAINTS  </h1>
+
+        <table class="table" id="customers">
+		<tr>
+			<th>Complaint</th>
+            <th>Uploaded file</th>
+            <th>Date</th>
+            <th>Reply</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['complaint']}}</td>
+            <td><img src="/{{i['upload']}}" width="60" height="100"></td>
+			<td>{{i['date']}}</td>
+            
+            {% if i['reply']=='pending' %}
+            <td><a class="btn btn-danger" href="admin_reply?rid={{i['complaint_id']}}">Reply</a></td>
+                    {% else %}
+            <td>{{i['reply']}}</td>
+
+                    {% endif %}
+
+
+
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+
+{% include 'footer.html' %}

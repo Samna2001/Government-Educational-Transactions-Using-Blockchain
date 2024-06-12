@@ -1,0 +1,31 @@
+{% include 'aeo_header.html'%}
+
+
+
+
+<h1>    VIEW REQUEST STATUS  </h1>
+
+        <table class="table" id="customers">
+		<tr>
+			<th>Request For</th>
+			<th> Details</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['requestdetails']}}</td>
+			<td>{{i['details']}}</td>
+			<td>{{i['date']}}</td>
+			<td>{{i['status']}}</td>
+<!-- 			<td><a class="btn btn-warning" href="office_add_plans?rid={{i['request_id']}}">Add plans</a></td>
+ -->			
+
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+
+
+
+{% include 'footer.html' %}

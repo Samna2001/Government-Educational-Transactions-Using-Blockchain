@@ -1,0 +1,48 @@
+ {% include 'ad_header.html'%}
+
+       
+<h1>    VIEW PLANS </h1>
+
+        <table class="table" id="customers" style="width: 600px">
+            <tr>
+            <th>ID</th>
+            <th>Plan</th>
+            <th>Description</th>
+            <th>Files</th>
+            <th>Transcations</th>
+               
+            {% for i in data['view'] %}
+            <tr>
+            <td>{{i['planid']}}</td>
+            <td>{{i['plan']}}</td>
+            <td>{{i['desc']}}</td>
+            <td><a href="/{{i['filename']}}" class="btn btn-danger" >View Files</a></td>
+                   
+            {% if i['status']=='pending' %}
+            <td><a class="btn btn-success" href="ad_assign_rdd?plans_id={{i['plans_id']}}">Assign </a></td>
+
+
+<!--             <td><a class="btn btn-warning" href="?action=accept&rid={{i['plans_id']}}">Approve</a></td>
+ -->            <td><a class="btn btn-danger" href="?action=reject&rid={{i['plans_id']}}">Decline</a></td>
+            {% elif i['status']=='deo_verify' %}
+            <td><a class="btn btn-success" href="ad_view_transcation?plans_id={{i['plans_id']}}">View Transcation</a></td>
+
+            {% else %}
+
+            <td> {{i['status']}}</td>
+
+
+            {% endif %}
+
+
+
+            </tr>
+            {%endfor%}
+        </table>
+   
+
+{% include 'footer.html'%}
+
+
+
+

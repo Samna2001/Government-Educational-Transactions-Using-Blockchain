@@ -1,0 +1,51 @@
+{% include 'adminheader.html'%}
+
+
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+<script>
+    $(function() {
+        $("input[name='cat']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='dd']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+       
+      
+     
+    });
+
+
+
+ 
+</script>
+
+
+<h1>    SEND REPLY  </h1>
+    <form action="" method="post">
+   
+        <table class="table" id="customers" style="width: 800px;">
+            <tr>
+                <th>Reply</th>
+                <td><input type="text" name="rep"  required id="form_fname" class="form-control">
+                    <span class="error_form" id="fname_error_message" style="color:red; font-size :13px; "></span></td>
+
+                </td>
+            </tr>
+           
+         
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="submit" name="rs" value="add" class="btn btn-success">
+
+                </td>
+            </tr>
+
+
+        </table>
+
+{% include 'footer.html' %}

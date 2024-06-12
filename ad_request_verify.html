@@ -1,0 +1,40 @@
+{% include 'ad_header.html'%}
+
+
+
+
+<h1>     REQUEST VERIFICATION  </h1>
+
+        <table class="table" id="customers">
+		<tr>
+			<th>Request For</th>
+			<th> Details</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for i in data['view'] %}
+		<tr>
+			<td>{{i['requestdetails']}}</td>
+			<td>{{i['details']}}</td>
+			<td>{{i['date']}}</td>
+			<td>{{i['status']}}</td>
+
+		{% if i['status']=='verified and forward to AD' %}
+			<td><a class="btn btn-success" href="ad_assign_rdd_request?rid={{i['request_id']}}">Approve</a></td>
+			<td><a class="btn btn-danger" href="?action=reject&rid={{i['request_id']}}">Decline</a></td>
+
+			{% endif %}
+		</tr>
+
+
+<!-- 			<td><a class="btn btn-warning" href="office_add_plans?rid={{i['request_id']}}">Add plans</a></td>
+ -->			
+
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+
+
+
+{% include 'footer.html' %}
